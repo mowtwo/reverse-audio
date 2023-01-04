@@ -178,7 +178,9 @@ recorder.addEventListener('click', async () => {
       const { data } = e
       audioChunks.push(data)
     })
-  } catch {
+  } catch (e: any) {
     alert('获取录音设备失败')
+    const text = document.createTextNode(e?.message ?? String(e))
+    document.querySelector('#app')!.appendChild(text)
   }
 })
